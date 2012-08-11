@@ -238,26 +238,26 @@ end %>
 																<span><strong>#<%=issue.id%> -</strong>&nbsp; <%=issue.subject%></span>				
 															</div>	
 															<div class="priority">
-																<span><strong>Prioridad:</strong> <%=Enumeration.find(issue.priority_id).name%></span>
+																<span><strong>Priority:</strong> <%=Enumeration.find(issue.priority_id).name%></span>
 															</div>	
 															<div class="date">
-																<span><strong>Inicio/fin -</strong> <%=issue.start_date.to_date.strftime("%d/%m/%Y") if issue.start_date.respond_to?(:to_date)%> - <%=issue.due_date.to_date.strftime("%d/%m/%Y") if issue.due_date.respond_to?(:to_date)%></span>
+																<span><strong>Start/End -</strong> <%=issue.start_date.to_date.strftime("%d/%m/%Y") if issue.start_date.respond_to?(:to_date)%> - <%=issue.due_date.to_date.strftime("%d/%m/%Y") if issue.due_date.respond_to?(:to_date)%></span>
 															</div>	
 															<div class="a_hours">
-																<span><strong>H. Asignadas:</strong> <%=issue.estimated_hours%></span>
+																<span><strong>Estimated:</strong> <%=issue.estimated_hours%></span>
 															</div>	
 															<div class="d_hours">
-																<span><strong>H. Dedicados:</strong> <%=sum%></span>
+																<span><strong>Spent time:</strong> <%=sum%></span>
 															</div>
 															<div class="separation">
 																<hr />
 															</div>
 															<div class="status">
-																<span><strong>Estado:</strong> <%=IssueStatus.find(issue.status_id).name%></span>
+																<span><strong>Status:</strong> <%=IssueStatus.find(issue.status_id).name%></span>
 															</div>	
 															<div class="percent">
 																<div>
-																	<strong>% tarea:</strong>
+																	<strong>% done:</strong>
 																	<div class="percent_div">
 																		<span class="percent_img" style="width:<%=issue.done_ratio%>%"></span>
 																		
@@ -265,7 +265,7 @@ end %>
 																	<span class="percent_text"><%=issue.done_ratio%>%</span>
 																</div>
 																<div>
-																	<strong>% tiempo:</strong>
+																	<strong>% estim.:</strong>
 																	<div class="percent_div">
 																		<span class="percent_img2" style="width:<%=(calculos[issue.id].percent_horas_dedicado > 100 ) ? 100 : calculos[issue.id].percent_horas_dedicado%>%"></span>
 																		
@@ -277,13 +277,13 @@ end %>
 																<hr />
 															</div>	
 															<div class="dcr">
-																<span><strong>Desfase Consumo recursos:</strong> <%=calculos[issue.id].difftiempo.round%>%</span>
+																<span><strong>Resource consumption diff:</strong> <%=calculos[issue.id].difftiempo.round%>%</span>
 															</div>		
 															<div class="date">
 																<span><strong>Timing:</strong> <%=calculos[issue.id].diffhoras.round%>%</span>
 															</div>	
 															<div class="a_hours">
-																<span><strong>Eficacia:</strong> <%=calculos[issue.id].eficacia_actual.round%></span>
+																<span><strong>Efficiency:</strong> <%=calculos[issue.id].eficacia_actual.round%></span>
 															</div>	
 														</div>
 										
@@ -293,7 +293,7 @@ end %>
 									<% end%>
 									<% if (params[:show_issues] == "1") then %> 
 									<div class="user_total_hours">
-											<span class="remanente"><strong><%=total_rem_by_user[user.id]%>h</strong> Remanente</span>
+											<span class="remanente"><strong><%=total_rem_by_user[user.id]%>h</strong> Remaining</span>
 										
 										<% issues_remanentes_by_user[user.id].each do |issue|
 												sum = 0
@@ -311,26 +311,26 @@ end %>
 																<span><strong>#<%=issue.id%> -</strong>&nbsp; <%=issue.subject%></span>				
 															</div>	
 															<div class="priority">
-																<span><strong>Prioridad:</strong> <%=Enumeration.find(issue.priority_id).name%></span>
+																<span><strong>Priority:</strong> <%=Enumeration.find(issue.priority_id).name%></span>
 															</div>	
 															<div class="date">
-																<span><strong>Inicio/fin -</strong> <%=issue.start_date.to_date.strftime("%d/%m/%Y") if issue.start_date.respond_to?(:to_date)%> - <%=issue.due_date.to_date.strftime("%d/%m/%Y") if issue.due_date.respond_to?(:to_date)%></span>
+																<span><strong>Start/End -</strong> <%=issue.start_date.to_date.strftime("%d/%m/%Y") if issue.start_date.respond_to?(:to_date)%> - <%=issue.due_date.to_date.strftime("%d/%m/%Y") if issue.due_date.respond_to?(:to_date)%></span>
 															</div>	
 															<div class="a_hours">
-																<span><strong>H. Asignadas:</strong> <%=issue.estimated_hours%></span>
+																<span><strong>Estimated:</strong> <%=issue.estimated_hours%></span>
 															</div>	
 															<div class="d_hours">
-																<span><strong>H. Dedicados:</strong> <%=sum%></span>
+																<span><strong>Spent time:</strong> <%=sum%></span>
 															</div>
 															<div class="separation">
 																<hr />
 															</div>
 															<div class="status">
-																<span><strong>Estado:</strong> <%=IssueStatus.find(issue.status_id).name%></span>
+																<span><strong>Status:</strong> <%=IssueStatus.find(issue.status_id).name%></span>
 															</div>	
 															<div class="percent">
 																<div>
-																	<strong>% tarea:</strong>
+																	<strong>% done:</strong>
 																	<div class="percent_div">
 																		<span class="percent_img" style="width:<%=issue.done_ratio%>%"></span>
 																		
@@ -338,7 +338,7 @@ end %>
 																	<span class="percent_text"><%=issue.done_ratio%>%</span>
 																</div>
 																<div>
-																	<strong>% tiempo:</strong>
+																	<strong>% estim.:</strong>
 																	<div class="percent_div">
 																		<span class="percent_img2"  style="width:0px" ></span>
 																		
@@ -350,13 +350,13 @@ end %>
 																<hr />
 															</div>	
 															<div class="dcr">
-																<span><strong>Desfase Consumo recursos:</strong> 0%</span>
+																<span><strong>Resource consumption diff:</strong> 0%</span>
 															</div>		
 															<div class="date">
 																<span><strong>Timing:</strong> 0%</span>
 															</div>	
 															<div class="a_hours">
-																<span><strong>Eficacia:</strong> </span>
+																<span><strong>Efficiency:</strong> </span>
 															</div>	
 														</div>
 										
@@ -493,19 +493,19 @@ end %>
 		</tr>
 		</table>
 		<div class="legend">
-			<span class="hours_graph" title="leyenda">leyenda</span>
+			<span class="hours_graph" title="leyenda">Legend</span>
 			<div class="timing_graph">
 				<span class="title"><strong>Timing:</strong></span>
-				<span class="perfect" title="leyenda">Perfecto /<br />Perfect</span>
-				<span class="normal" title="leyenda">En tiempo /<br />On time</span>
-				<span class="retard" title="leyenda">Retraso /<br />Delay</span>
-				<span class="retard2" title="leyenda">Mucho retraso /<br />Delay</span>
-				<span class="no_time" title="leyenda">Sin timing /<br />No timing</span>
-				<span class="father" title="leyenda">Tarea Padre (no suma) /<br />Parent task (does not add up)</span>
+				<span class="perfect" title="leyenda">Perfect</span>
+				<span class="normal" title="leyenda">On time</span>
+				<span class="retard" title="leyenda">Delay</span>
+				<span class="retard2" title="leyenda">Delay</span>
+				<span class="no_time" title="leyenda">No timing</span>
+				<span class="father" title="leyenda">Parent task (does not add up)</span>
 			</div>
-			<span class="blue">Tiempo dedicado / Time spent</span>
-			<span class="gray">Pasado / Past</span>
-			<span class="black">Dedicado m&aacute;s tiempo del previsto / Out of time budget</span>
+			<span class="blue">Time spent</span>
+			<span class="gray">Past</span>
+			<span class="black">Out of time budget</span>
 		</div>
 		<div style="clear:both;"></div>
 		
